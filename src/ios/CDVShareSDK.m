@@ -23,7 +23,7 @@
     NSString* wechatAppId = [[self.commandDelegate settings] objectForKey:@"wechatappid"];
     NSString* wechatAppSecret = [[self.commandDelegate settings] objectForKey:@"wechatappsecret"];
     NSString* sharesdkAppId = [[self.commandDelegate settings] objectForKey:@"sharesdkappid"];
-    if(wechatAppId && wechatAppSecret && sharesdkAppId){
+    //if(wechatAppId && wechatAppSecret && sharesdkAppId){
        
         /*Share SDK config*/
         [ShareSDK registerApp:sharesdkAppId];
@@ -50,7 +50,7 @@
         //连接拷贝
         //[ShareSDK connectCopy];
         
-    }
+    //}
 }
 - (void)share:(CDVInvokedUrlCommand *)command
 {

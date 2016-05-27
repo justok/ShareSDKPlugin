@@ -3,15 +3,23 @@
 //  ShareSDK-Cordova-Plugin
 //
 //  Created by scuhmz on 10/8/15.
+//  modify by zhangwei 2016.5.27  增加对qq分享和qq空间分享的支持
 //
 //
 
 #import "CDVShareSDK.h"
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
+
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
 @implementation CDVShareSDK
 #pragma mark "API"
 - (void)pluginInitialize {
+    NSString* qqAppId = [[self.commandDelegate settings] objectForKey:@"qqappid"];
+	NSString* qqAppSecret = [[self.commandDelegate settings] objectForKey:@"qqappsecret"];
     NSString* wechatAppId = [[self.commandDelegate settings] objectForKey:@"wechatappid"];
     NSString* wechatAppSecret = [[self.commandDelegate settings] objectForKey:@"wechatappsecret"];
     NSString* sharesdkAppId = [[self.commandDelegate settings] objectForKey:@"sharesdkappid"];
@@ -23,15 +31,24 @@
         [ShareSDK connectWeChatWithAppId:wechatAppId
                                appSecret:wechatAppSecret
                                wechatCls:[WXApi class]];
+        //添加QQ空间应用  注册网址  http://connect.qq.com/intro/login/
+       [ShareSDK connectQZoneWithAppKey:qqAppId
+                               appSecret:qqAppSecret
+                       qqApiInterfaceCls:[QQApiInterface class]
+                         tencentOAuthCls:[TencentOAuth class]];
+        //添加QQ应用  注册网址   http://mobile.qq.com/api/
+        [ShareSDK connectQQWithQZoneAppKey:qqAppId
+                         qqApiInterfaceCls:[QQApiInterface class]
+                           tencentOAuthCls:[TencentOAuth class]];
         
         //连接短信分享
-        [ShareSDK connectSMS];
+       // [ShareSDK connectSMS];
         //连接邮件
-        [ShareSDK connectMail];
+        //[ShareSDK connectMail];
         //连接打印
-        [ShareSDK connectAirPrint];
+        //[ShareSDK connectAirPrint];
         //连接拷贝
-        [ShareSDK connectCopy];
+        //[ShareSDK connectCopy];
         
     }
 }
@@ -43,7 +60,7 @@
             NSString *content = [args objectForKey:@"content"];
             NSString *url = [args objectForKey:@"url"];
             NSString *imagePath = [args objectForKey:@"imagePath"];
-            NSString *imageNamed = [args objectForKey:@"imageNamed"];
+            //NSString *imageNamed = [args objectForKey:@"imageNamed"];
             NSString *description = [args objectForKey:@"description"];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

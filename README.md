@@ -19,7 +19,7 @@ ShareSDK.share(message,null,null);
 ### Installation
 1
 ```sh
-cordova plugin add https://github.com/nwpuhmz/ShareSDKPlugin --variable wechatappid=YOUR_APPID --variable SHARESDKAPPID=YOUR_SHARESDKAPPID --variable WECHATAPPSECRET=YOUR_WECHATAPPSECRET
+cordova plugin add https://github.com/nwpuhmz/ShareSDKPlugin --variable wechatappid=YOUR_APPID --variable SHARESDKAPPID=YOUR_SHARESDKAPPID --variable WECHATAPPSECRET=YOUR_WECHATAPPSECRET --variable qqAppId=YOUR_QQAPPID --variable qqAppSecret=YOUR_QQAPPSECRET
 ```
 2
 ```sh

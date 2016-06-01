@@ -72,7 +72,7 @@
         NSLog(@"iphone or ipod");
         //构造分享内容
         id<ISSContent> publishContent = [ShareSDK content:content//
-                                           defaultContent:@"瓜大市场"//
+                                           defaultContent:@"分享"//
                                                     image:[ShareSDK imageWithUrl:imagePath]
                                                     title:title//
                                                       url:url//

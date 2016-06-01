@@ -18,6 +18,8 @@
     <preference name="WECHATAPPID" />
     <preference name="SHARESDKAPPID" />
     <preference name="WECHATAPPSECRET" />
+	<preference name="QQAPPID" />
+	<preference name="QQAPPSECRET" />
     <!--require cordova version -->
     <engines>
         <engine name="cordova" version=">=3.5.0" />
@@ -38,7 +40,8 @@
             <preference name="WECHATAPPID" value="$WECHATAPPID"/>
             <preference name="SHARESDKAPPID" value="$SHARESDKAPPID"/>
             <preference name="WECHATAPPSECRET" value="$WECHATAPPSECRET"/>
-
+            <preference name="QQAPPID" value="$QQAPPID"/>
+            <preference name="QQAPPSECRET" value="$QQAPPSECRET"/>
         </config-file>
 
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
